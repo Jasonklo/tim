@@ -3,28 +3,28 @@ package com.infosys.timetracker.tim.entity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
 @Data
-public class Effort {
-    
-    @Id
-    private int empId;
-    @Id
-    private Date weekStart;
-    @Id
-    private char intcidentId;
+public class Effort implements Serializable {
 
-    private double mon;
-    private double tue;
-    private double wed;
-    private double thr;
-    private double fri;
-    private double sat;
-    private double sun;
+
+    @EmbeddedId
+    private EffortId effortId;
+
+    private Double mon;
+    private Double tue;
+    private Double wed;
+    private Double thr;
+    private Double fri;
+    private Double sat;
+    private Double sun;
     private Integer maintId;
     private Timestamp maintTs;
 
