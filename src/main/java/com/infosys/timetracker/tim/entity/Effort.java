@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 @Entity
 @Data
 public class Effort {
+    
     @Id
     private int empId;
     @Id
@@ -24,7 +25,7 @@ public class Effort {
     private double fri;
     private double sat;
     private double sun;
-    private int maintId;
+    private Integer maintId;
     private Timestamp maintTs;
 
 }
