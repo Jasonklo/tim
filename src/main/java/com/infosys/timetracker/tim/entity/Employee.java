@@ -6,6 +6,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 
 @Data
@@ -27,6 +28,9 @@ public class Employee implements Serializable {
 
     private Integer maintId;
     private Timestamp maintTs;
+
+    @OneToMany(mappedBy = "task")
+    private List<Task> tasks;
 
     //ADMIN, READ, WRITE
     public enum Access{

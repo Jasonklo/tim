@@ -16,18 +16,18 @@ public class Task implements Serializable {
     private Character incidentId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=false)
-    @JoinColumn(name="AppName")
+    @JoinColumn(name="AppName", insertable = false, updatable = false)
     private Application application;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=false)
-    @JoinColumn(name="groupId")
-    private Group Group;
+    @JoinColumn(name="groupId", insertable = false, updatable = false)
+    private Group group;
 
     private Character incidentType;
     private Character summary;
 
     @ManyToOne(fetch = FetchType.LAZY, optional=false)
-    @JoinColumn(name="empId")
+    @JoinColumn(name="empId", insertable = false, updatable = false)
     private Employee employee;
     private Timestamp submitDate;
     private Timestamp closedDate;
