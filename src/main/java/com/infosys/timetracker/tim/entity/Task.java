@@ -2,23 +2,33 @@ package com.infosys.timetracker.tim.entity;
 
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import java.sql.Time;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Entity
 @Data
-public class Task {
-    private Character appName;
-    private Character groupId;
+public class Task implements Serializable {
 
     @Id
+    @GeneratedValue
     private Character incidentId;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @JoinColumn(name="AppName")
+    private Application application;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @JoinColumn(name="groupId")
+    private Group Group;
+
     private Character incidentType;
     private Character summary;
-    private Integer empId;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional=false)
+    @JoinColumn(name="empId")
+    private Employee employee;
     private Timestamp submitDate;
     private Timestamp closedDate;
     private Character impact;
