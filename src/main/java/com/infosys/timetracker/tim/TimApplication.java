@@ -9,12 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import java.util.List;
 
 @SpringBootApplication
-public class TimApplication implements WebMvcConfigurer {
+public class TimApplication {
 
-    @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(new SpecificationArgumentResolver());
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(TimApplication.class, args);
