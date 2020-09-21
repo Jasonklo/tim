@@ -20,6 +20,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'net.kaczmarzyk:specification-arg-resolver:2.6.1'
     compileOnly 'org.projectlombok:lombok:1.18.12'
     annotationProcessor 'org.projectlombok:lombok:1.18.12'
     runtimeOnly 'com.h2database:h2'

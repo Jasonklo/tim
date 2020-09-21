@@ -15,6 +15,7 @@ import java.util.List;
 public class Employee implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer empId;
     private Character cId;
     private Character empName;

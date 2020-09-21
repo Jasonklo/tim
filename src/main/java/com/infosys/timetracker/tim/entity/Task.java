@@ -40,4 +40,10 @@ public class Task implements Serializable {
     private Timestamp targetDate;
     private Integer maintId;
     private Timestamp maintTs;
+
+
+
+
 }
+
+

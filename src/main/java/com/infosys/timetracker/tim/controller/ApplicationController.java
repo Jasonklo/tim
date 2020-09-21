@@ -16,32 +16,33 @@ import java.util.Optional;
 @CrossOrigin(origins = "*")
 public class ApplicationController {
 
-    private ApplicationRepository repo;
+    private ApplicationRepository AppRepo;
+
 
     @Autowired
-    public ApplicationController(ApplicationRepository repo)
+    public ApplicationController(ApplicationRepository AppRepo)
     {
-        this.repo = repo;
+        this.AppRepo = AppRepo;
     }
     @GetMapping
-    public Iterable allApplications() { return  repo.findAll(); }
+    public Iterable allApplications() { return  AppRepo.findAll(); }
 
     @GetMapping("/{id}")
     public Optional<Application> byId(@PathVariable char id) {
-        return repo.findById(id);
+        return AppRepo.findById(id);
     }
 
     @PutMapping("/{id}")
     public void updateApplication(@PathVariable char id, @RequestBody Application application) {
         if (application.getAppName()!=(id)) {
-            throw new IllegalStateException("Given employee's ID doesn't match the ID in the path.");
+            throw new IllegalStateException("Given appName doesn't match the ID in the path.");
         }
-        repo.save(application);
+        AppRepo.save(application);
     }
 
     @PostMapping
     public ResponseEntity<Application> postApplication(@RequestBody Application application) {
-        Application saved = repo.save(application);
+        Application saved = AppRepo.save(application);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(URI.create("http://localhost:8080/applications/" + application.getAppName()));
         return new ResponseEntity<>(saved, headers, HttpStatus.CREATED);
@@ -49,7 +50,7 @@ public class ApplicationController {
 
     @DeleteMapping("/{id}")
     public void deleteApplication(@PathVariable char id) {
-        repo.deleteById(id);
+        AppRepo.deleteById(id);
     }
 
 }
