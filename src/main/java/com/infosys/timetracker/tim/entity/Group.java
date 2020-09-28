@@ -16,9 +16,9 @@ import java.util.List;
 public class Group implements Serializable {
 
     @Id
-    private Character groupId;
-    private Character groupName;
-    private Integer maintId;
+    private String groupId;
+    private String groupName;
+    private int maintId;
     private Timestamp maintTs;
 
     @OneToMany(mappedBy = "group")
