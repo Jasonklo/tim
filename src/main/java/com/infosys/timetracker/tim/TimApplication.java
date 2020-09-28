@@ -1,6 +1,6 @@
 package com.infosys.timetracker.tim;
 
-import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
